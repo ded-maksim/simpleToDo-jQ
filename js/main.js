@@ -45,4 +45,23 @@ $(document).ready(function (e) {
             $('#new-todo input').val(''); /*clear fields*/
         }
     }); // end dialog
+    
+    // click on task checkbox
+    $('#todo-list').on('click', '.done', function(){
+        var $taskItem = $(this).parent('li');
+        $taskItem.slideUp(250, function(){
+            var $this = $(this);
+            $this.detach();
+            $('#completed-list').prepend($this);
+            $this.slideDown();
+        }); // end slideUp task item
+    }); // end click on .done 
+    
+    // sotrable function
+    $('.sortlist').sortable({
+        connectWith: '.sortlist',
+        cursor: 'pointer',
+        placeholder: 'ui-state-highlight',
+        cancel: '.delete,.done'
+    }) // end sortable
 }); // end ready
