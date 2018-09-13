@@ -57,7 +57,14 @@ $(document).ready(function (e) {
         }); // end slideUp task item
     }); // end click on .done 
     
-    // sotrable function
+    // click on .delete
+    $('.sortlist').on('click', '.delete', function(){
+        $(this).parent('li').effect('puff', function(){
+            $(this).remove();
+        });
+    }); // end click on .delete
+    
+    // sortable function
     $('.sortlist').sortable({
         connectWith: '.sortlist',
         cursor: 'pointer',
